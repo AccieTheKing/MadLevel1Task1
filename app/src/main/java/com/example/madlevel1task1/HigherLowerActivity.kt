@@ -21,6 +21,9 @@ class HigherLowerActivity : AppCompatActivity() {
      * This method will set the initialisation of the UI state
      */
     private fun initViews() {
+        binding.btnLower.setOnClickListener { onLowerClick() }
+        binding.btnEquals.setOnClickListener { onEqualClick() }
+        binding.btnHigher.setOnClickListener { onHigherClick() }
         updateUI()
     }
 
@@ -69,7 +72,7 @@ class HigherLowerActivity : AppCompatActivity() {
         rollDice()
 
         if(currentThrow == lastThrow) onAnswerCorrect()
-        else
+        else onAnswerIncorrect()
     }
 
     /**
@@ -83,6 +86,6 @@ class HigherLowerActivity : AppCompatActivity() {
      * Display an incorrect Toast message
      */
     private fun onAnswerIncorrect() {
-        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
     }
 }
