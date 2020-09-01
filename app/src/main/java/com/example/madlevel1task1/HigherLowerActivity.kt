@@ -33,6 +33,15 @@ class HigherLowerActivity : AppCompatActivity() {
      */
     private fun updateUI() {
         binding.lastThrowLabel.text = getString(R.string.last_throw, lastThrow)
+
+        when(currentThrow){
+            1 -> binding.diceImage.setImageResource(R.drawable.dice1)
+            2 -> binding.diceImage.setImageResource(R.drawable.dice2)
+            3 -> binding.diceImage.setImageResource(R.drawable.dice3)
+            4 -> binding.diceImage.setImageResource(R.drawable.dice4)
+            5 -> binding.diceImage.setImageResource(R.drawable.dice5)
+            else -> binding.diceImage.setImageResource(R.drawable.dice6)
+        }
     }
 
     /**
@@ -79,7 +88,7 @@ class HigherLowerActivity : AppCompatActivity() {
      * Display a successful Toast message
      */
     private fun onAnswerCorrect() {
-        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
     }
 
     /**
